@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.757
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "RetinaSegmentation", "RetinaSegmentation\RetinaSegmentation.pyproj", "{AD4716E3-002A-450B-92BF-6438E7EBB9A2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD4716E3-002A-450B-92BF-6438E7EBB9A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD4716E3-002A-450B-92BF-6438E7EBB9A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E9792C89-1A32-485C-928F-BFA69FAE0EBB}
+	EndGlobalSection
+EndGlobal

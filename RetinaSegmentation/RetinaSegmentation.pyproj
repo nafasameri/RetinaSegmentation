@@ -1,0 +1,117 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>ad4716e3-002a-450b-92bf-6438e7ebb9a2</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>RetinaSegmentation.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <IsWindowsApplication>True</IsWindowsApplication>
+    <InterpreterId>Global|VisualStudio|IronPython</InterpreterId>
+    <LaunchProvider>IronPython (.NET) launcher</LaunchProvider>
+    <OutputPath>.</OutputPath>
+    <Name>RetinaSegmentation</Name>
+    <RootNamespace>RetinaSegmentation</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="evaluate.py" />
+    <Compile Include="extract_patches.py" />
+    <Compile Include="help_functions.py" />
+    <Compile Include="models.py" />
+    <Compile Include="module.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="prepare_datasets_DRIVE.py" />
+    <Compile Include="pre_processing.py" />
+    <Compile Include="RetinaSegmentation.py" />
+    <Compile Include="save_patch.py" />
+    <Compile Include="Test.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="train_retina.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DataSet\Grade0_Normal.jpg" />
+    <Content Include="DataSet\HardEx\IDRiD_32.jpg" />
+    <Content Include="DataSet\HardEx\IDRiD_32_EX.tif" />
+    <Content Include="DataSet\HardEx\IDRiD_35.jpg" />
+    <Content Include="DataSet\HardEx\IDRiD_35_EX.tif" />
+    <Content Include="DataSet\HardEx\IDRiD_37.jpg" />
+    <Content Include="DataSet\HardEx\IDRiD_37_EX.tif" />
+    <Content Include="DataSet\HE\IDRiD_04.jpg" />
+    <Content Include="DataSet\HE\IDRiD_04_HE.tif" />
+    <Content Include="DataSet\HE\IDRiD_06.jpg" />
+    <Content Include="DataSet\HE\IDRiD_06_HE.tif" />
+    <Content Include="DataSet\HE\IDRiD_08.jpg" />
+    <Content Include="DataSet\HE\IDRiD_08_HE.tif" />
+    <Content Include="DataSet\MA\IDRiD_04.jpg" />
+    <Content Include="DataSet\MA\IDRiD_04_MA.tif" />
+    <Content Include="DataSet\MA\IDRiD_24.jpg" />
+    <Content Include="DataSet\MA\IDRiD_24_MA.tif" />
+    <Content Include="DataSet\MA\IDRiD_44.jpg" />
+    <Content Include="DataSet\MA\IDRiD_44_MA.tif" />
+    <Content Include="DataSet\SoftEx\IDRiD_31.jpg" />
+    <Content Include="DataSet\SoftEx\IDRiD_31_SE.tif" />
+    <Content Include="DataSet\SoftEx\IDRiD_32.jpg" />
+    <Content Include="DataSet\SoftEx\IDRiD_32_SE.tif" />
+    <Content Include="DataSet\SoftEx\IDRiD_35.jpg" />
+    <Content Include="DataSet\SoftEx\IDRiD_35_SE.tif" />
+    <Content Include="logo.png" />
+    <Content Include="RetinaSegmentation.xaml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <Name>mscorlib</Name>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PresentationCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <Name>PresentationCore</Name>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <Name>PresentationFramework</Name>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="WindowsBase, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <Name>WindowsBase</Name>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xaml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <Name>System.Xaml</Name>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="Global|ContinuumAnalytics|Anaconda36-64" />
+    <InterpreterReference Include="Global|PythonCore|3.6" />
+    <InterpreterReference Include="Global|VisualStudio|IronPython" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DataSet\" />
+    <Folder Include="DataSet\HardEx\" />
+    <Folder Include="DataSet\HE\" />
+    <Folder Include="DataSet\MA\" />
+    <Folder Include="DataSet\SoftEx\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>
