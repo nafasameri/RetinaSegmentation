@@ -195,13 +195,13 @@
                     <ControlTemplate TargetType="CheckBox">
                         <BulletDecorator Background="Transparent">
                             <BulletDecorator.Bullet>
-                                <Border x:Name="Border" Width="15" Height="15" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" ClipToBounds="True">
+                                <Border x:Name="Border" Width="17" Height="16" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" ClipToBounds="True" BorderThickness="1">
                                     <Border.Effect>
                                         <DropShadowEffect BlurRadius="5" ShadowDepth="2" />
                                     </Border.Effect>
                                     <!--<Path x:Name="CheckMark" Width="8" Height="8" HorizontalAlignment="Center" VerticalAlignment="Center" Data="M 0 0 L 8 8 M 0 8 L 8 0" Stretch="Fill" Stroke="LightGray" StrokeEndLineCap="Round" StrokeStartLineCap="Round" StrokeThickness="2" />-->
-                                    <Path x:Name="CheckMark" Data="M 263,99 263,115 113,115 Q 87,115 87,139 L 87,315 Q 87,340 113,340 L 287,340 Q 311,340 311,315 L 311,221 327,221 327,315 Q 327, 355 287,355 L 113,355 Q 73,355 73,315 L 73, 139 Q 73,99 113,99 Z M 186,323 105,238 143,195 186,240,351,68,391,112 Z" Stretch="Fill" Stroke="LightGray"/>
                                     <!--<Path x:Name="CheckMark" Data="M31,5 L19.5,5 19.5,19.5 34.5,19.5 34.5,11.75" Stretch="Fill" Stroke="LightGray"/>-->
+                                    <Path x:Name="CheckMark" Data="M 263,99 263,115 113,115 Q 87,115 87,139 L 87,315 Q 87,340 113,340 L 287,340 Q 311,340 311,315 L 311,221 327,221 327,315 Q 327, 355 287,355 L 113,355 Q 73,355 73,315 L 73, 139 Q 73,99 113,99 Z M 186,323 105,238 143,195 186,240,351,68,391,112 Z" Stretch="Fill" Stroke="LightGray"/>
                                 </Border>
                             </BulletDecorator.Bullet>
                             <ContentPresenter Margin="4,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" RecognizesAccessKey="True" />
@@ -209,18 +209,15 @@
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsChecked" Value="False">
                                 <Setter TargetName="CheckMark" Property="Visibility" Value="Collapsed" />
-                                <Setter Property="BorderThickness" Value="0"/>
+                                <Setter Property="BorderThickness" Value="1"/>
+                                <Setter Property="BorderBrush" Value="Gray"/>
                             </Trigger>
                             <Trigger Property="IsChecked" Value="True">
-                                <Setter Property="BorderThickness" Value="2"/>
+                                <Setter Property="BorderThickness" Value="0"/>
                                 <Setter Property="BorderBrush" Value="Transparent"/>
                             </Trigger>
                             <Trigger Property="IsFocused" Value="true">
                                 <Setter Property="BorderBrush" Value="White" />
-                            </Trigger>
-                            <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="BorderBrush" Value="Gray" />
-                                <Setter TargetName="CheckMark" Property="Stroke" Value="Gray" />
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -238,7 +235,7 @@
                     <ControlTemplate TargetType="RadioButton">
                         <BulletDecorator Background="Transparent">
                             <BulletDecorator.Bullet>
-                                <Border x:Name="Border" CornerRadius="50" Width="15" Height="15" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" ClipToBounds="False">
+                                <Border x:Name="Border" CornerRadius="50" Width="16" Height="16" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" ClipToBounds="False">
                                     <Border.Effect>
                                         <DropShadowEffect BlurRadius="5" ShadowDepth="2"/>
                                     </Border.Effect>
@@ -248,13 +245,13 @@
                             <ContentPresenter Margin="4,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" RecognizesAccessKey="True" />
                         </BulletDecorator>
                         <ControlTemplate.Triggers>
-                            <Trigger Property="IsChecked" Value="false">
+                            <Trigger Property="IsChecked" Value="False">
                                 <Setter TargetName="CheckMark" Property="Visibility" Value="Collapsed" />
                             </Trigger>
-                            <Trigger Property="IsFocused" Value="true">
+                            <Trigger Property="IsFocused" Value="True">
                                 <Setter Property="BorderBrush" Value="White" />
                             </Trigger>
-                            <Trigger Property="IsEnabled" Value="false">
+                            <Trigger Property="IsEnabled" Value="False">
                                 <Setter Property="BorderBrush" Value="Gray" />
                                 <Setter TargetName="CheckMark" Property="Stroke" Value="Gray" />
                             </Trigger>
@@ -263,6 +260,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
     </Window.Resources>
 
     <Grid>
@@ -383,25 +381,31 @@
 
         <Button x:Name="btnBrowse" Content="Browse" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="194" Height="28" Background="#FF191717" Foreground="#BFFFFFFF" BorderBrush="#FFE4081B" Click="BtnBrowse_Click" Margin="5">
             <!--<Button.Resources>
-                        <Style TargetType="Button">
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="Button">
-                                        <ControlTemplate.Triggers>
-                                            <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Background" Value="#E59400" />
-                                                <Setter Property="Foreground" Value="White" />
-                                            </Trigger>
-                                            <Trigger Property="IsPressed" Value="True">
-                                                <Setter Property="Background" Value="OrangeRed" />
-                                                <Setter Property="Foreground" Value="White" />
-                                            </Trigger>
-                                        </ControlTemplate.Triggers>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </Button.Resources>-->
+                <Style TargetType="Button">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#E59400" />
+                                        <Setter Property="Foreground" Value="White" />
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter Property="Background" Value="OrangeRed" />
+                                        <Setter Property="Foreground" Value="White" />
+                                    </Trigger>
+                                    <Trigger Property="IsFocused" Value="True">
+                                        <Setter Property="BorderBrush" Value="White" />
+                                    </Trigger>
+                                    <Trigger Property="IsEnabled" Value="False">
+                                        <Setter Property="BorderBrush" Value="Gray" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Resources>-->
         </Button>
     </Grid>
 </Window>

@@ -1,12 +1,15 @@
 import wpf
 import clr
 clr.AddReference('System')
+#clr.AddReference('System.Drawing')
 
 from System.Windows import Application, Window
 from Microsoft.Win32 import OpenFileDialog
 from System.Windows.Media.Imaging import BitmapImage
+from System.Windows.Media import LinearGradientBrush, GradientStop, Colors
 from System import Uri
-
+#from System.Drawing.Drawing2D import LinearGradientBrush
+#from System.Drawing import Point, Color
 
 class MyWindow(Window):
     def __init__(self):
@@ -31,11 +34,9 @@ class MyWindow(Window):
                     self.img.Source = BitmapImage(Uri(dlgOrg.FileName))
                     self.imgResult.Source = BitmapImage(Uri(dlgMask.FileName))
                     #import Test
-                
         except e:
             print("Error: {}", e)
-
-        print("end")
+        return 0
 
     def lbImgs_SelectionChanged(self, sender, e):
         index = self.lbImgs.SelectedIndex
@@ -160,13 +161,12 @@ class MyWindow(Window):
             self.cbHemorrhage.IsChecked = self.cbMicroaneurysm.IsChecked = self.cbSoftExudates.IsChecked = self.cbHardExudates.IsChecked = False
             self.cbSoftExudates.IsChecked = True
 
-        #self.Recommended()
-        print("End")
+        self.Recommended()
 
     def Recommended(self):
         if self.cbHardExudates.IsChecked == True or self.cbHemorrhage.IsChecked == True or self.cbMicroaneurysm.IsChecked == True or self.cbSoftExudates.IsChecked == True:
             
-            self.myBrush = LinearGradientBrush()
+            myBrush = LinearGradientBrush()
             myBrush.GradientStops.Add(GradientStop(Colors.Yellow, 0.0))
             myBrush.GradientStops.Add(GradientStop(Colors.Orange, 0.5))
             myBrush.GradientStops.Add(GradientStop(Colors.Red, 1.0))
@@ -174,12 +174,12 @@ class MyWindow(Window):
             self.lblRecommended.Content = "Recommended Refer"
             
         else:
-            self.myBrush = LinearGradientBrush()
+            myBrush = LinearGradientBrush()
             myBrush.GradientStops.Add(GradientStop(Colors.Green, 0.0))
             myBrush.GradientStops.Add(GradientStop(Colors.LawnGreen, 0.5))
             myBrush.GradientStops.Add(GradientStop(Colors.DarkGreen, 1.0))
-            lblRecommended.Background = myBrush
-            lblRecommended.Content = "Recommended No Refer"
+            self.lblRecommended.Background = myBrush
+            self.lblRecommended.Content = "Recommended No Refer"
 
 
 if __name__ == '__main__':
